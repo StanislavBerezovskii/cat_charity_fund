@@ -26,8 +26,6 @@ async def investment_process(session: AsyncSession):
     unclosed_projects = await charity_project_crud.get_not_closed_objects(
         session=session
     )
-    if not investments_open or not unclosed_projects:
-        return
     for donation in investments_open:
         for project in unclosed_projects:
             amount_still_needed_for_project = (
