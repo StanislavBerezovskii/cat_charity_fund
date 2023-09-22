@@ -1,111 +1,109 @@
-# Проект QRKot
-Обучающий проект, выполненный в рамках курса "Яндекс.Практикум, Python-разработчик+"
-Проект представляет собой благотворительный фонд поддержки кошек.
+# Project QRKot_Spreadsheets:
+A training project completed as part of the "Yandex.Practicum, Python Developer+" online course.
+Project QRKot is a platform for a charity fund for cats.
 ___
 
-## О проекте
-Фонд собирает пожертвования на различные целевые проекты: на медицинское обслуживание
-нуждающихся хвостатых, на обустройство кошачьей колонии в подвале, 
-на корм оставшимся без попечения кошкам — на любые цели, 
-связанные с поддержкой кошачьей популяции.
+## About:
+The foundation collects donations for various targeted projects: such as medical care for cats in need,
+setting up cat colonies in the basement, getting food for cats left without care - for any purpose,
+related to supporting the cat population.
 
-- Проекты:
-В Фонде QRKot может быть открыто несколько целевых проектов. 
-У каждого проекта есть название, описание и сумма, которую планируется собрать. 
-После того, как нужная сумма собрана — проект закрывается.
-Пожертвования в проекты поступают по принципу First In, First Out: 
-все пожертвования идут в проект, открытый раньше других; 
-когда этот проект набирает необходимую сумму и закрывается — 
-пожертвования начинают поступать в следующий проект.
+- Fund Projects:
+Several targeted projects can be opened in the QRKot Foundation.
+Each project has a name, description and a target amount planned to be raised.
+After the required amount is collected, the project is closed.
+Donations to projects are received on a First In, First Out basis:
+all donations go to the project that was opened earlier than others;
+when this project reaches the target amount and is closed -
+donations are starting to pour in for the next project.
 
-- Пожертвования:
-Каждый пользователь может сделать пожертвование и сопроводить его комментарием. 
-Пожертвования не целевые: они вносятся в фонд, а не в конкретный проект. 
-Каждое полученное пожертвование автоматически добавляется в первый открытый проект, 
-который ещё не набрал нужную сумму. Если пожертвование больше нужной суммы или же 
-в Фонде нет открытых проектов — оставшиеся деньги ждут открытия следующего проекта. 
-При создании нового проекта все неинвестированные пожертвования автоматически 
-вкладываются в новый проект. 
+- Donations:
+Any user can make a donation and accompany it with a comment.
+Donations are not targeted: they are given to the fund, not to a specific project.
+Every donation received is automatically transfered to the first open project,
+who has not yet collected the required amount. If the donation is more than the required amount or
+There are no open projects in the Fund - the remaining money is waiting for the opening of the next project.
+When creating a new project, all uninvested donations are automatically
+are investing in a new project.
 ___
 
-## Технологии:
-* [Python версии 3.9 и выше](https://www.python.org/downloads/)
+## Technologies:
+* [Python version 3.9 and higher](https://www.python.org/downloads/)
 * [FastAPI](https://fastapi.tiangolo.com/)
 * [FastAPI Users](https://fastapi-users.github.io/fastapi-users/10.1/)
 * [SQLAlchemy](https://www.sqlalchemy.org/)
 * [Alembic](https://alembic.sqlalchemy.org/en/latest/index.html)
 ___
 
-## Установка
-Клонируйте проект:
+## Installation:
+Clone the project:
    ```
    git clone https://github.com/sniki-ld/cat_charity_fund.git
    ```
-Перейдите в папку с проектом:
+Go to the project folder:
    ```
    cd cat_charity_fund
    ```
-Создайте и активируйте виртуальное окружение:
+Create and activate a virtual environment:
    ```
    python -m venv venv
    ```
    ```
    source venv/Scripts/activate
    ```
-Обновите менеджер пакетов (pip):
+Update your package manager (pip):
    ```
    pip3 install --upgrade pip
    ```
-Установите необходимые зависимости:
+Install the required dependencies:
    ```
    pip install -r requirements.txt
    ```
-Создайте файл с переменными окружения `.env`:
+Create a file with environment variables `.env`:
    ```
    touch .env
    ```
-Опишите переменными окружения:
+Set the environment variables:
    ```
-   APP_TITLE=<ваше название приложения>
-   APP_DESCRIPTION=<ваше описание проекта>
-   DATABASE_URL=<настройки подключения к БД, например: sqlite+aiosqlite:///./development.db>
-   SECRET=<секретный ключ>
-   FIRST_SUPERUSER_EMAIL=<email первого суперпользователя>
-   FIRST_SUPERUSER_PASSWORD=<пароль первого суперпользователя>
+   APP_TITLE=<your application name>
+   APP_DESCRIPTION=<your project description>
+   DATABASE_URL=<database connection settings, for example: sqlite+aiosqlite:///./development.db>
+   SECRET=<secret key>
+   FIRST_SUPERUSER_EMAIL=<email of the first superuser>
+   FIRST_SUPERUSER_PASSWORD=<first superuser password>
    ```
 ___
 
-## Использование
-Создайте миграции для создания БД:
+## Usage:
+Create migrations to create the database:
   ```
   alembic revision --autogenerate -m "<ваше название миграции>"
   ```
-Примените миграции для создания БД:
+Apply migrations to create the database:
   ```
   alembic upgrade head
   ```
-  
-Для запуска проекта выполните команду:
+To run the project, run the command:
   ```
   uvicorn app.main:app --reload
   ```
 
-_Если в файле `.env` были определены переменные
-`FIRST_SUPERUSER_EMAIL` и `FIRST_SUPERUSER_PASSWORD`, 
-то при первом запуске приложения в базе данных будет создан суперпользователь.
-Эти данные можно использовать для авторизации._
+_If the following variables were set in the `.env` file
+`FIRST_SUPERUSER_EMAIL` and `FIRST_SUPERUSER_PASSWORD`,
+then the first time the application is launched, a superuser will be created in the database.
+This data can be used for authorization._
 ___
 
-## Документация API
-Документация по проекту:
- - `/docs` — документация в формате Swagger;
- - `/redoc` — документация в формате ReDoc.
+## API Documentation:
+Project documentation:
+ - `/docs` — documentation in Swagger format;
+ - `/redoc` — documentation in ReDoc format.
 ___
 
-## Об авторе
-Автор проекта: Станислав Березовский
+## Project Author:
+Stanislav Berezovskii
 ___
 
-## Лицензия
+## Licensing:
 - ### **MIT License**
 ___
